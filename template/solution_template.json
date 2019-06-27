@@ -1,0 +1,34 @@
+{
+    "solutionId": "",
+    "description": "",
+    "users": "", 
+    "businessOwner": "",
+    "stakeholders" : [
+	{ "stakeholder": "", "description": "" }
+    ],
+    "environments": [
+	{
+	    "environment": "development",	
+	    "gitBranch":, "develop",
+	    "projects": [
+		{ "project": "" }
+	    ]	
+	},
+	{
+	    "environment": "production",	
+	    "gitBranch":, "master",
+	    "projects": [
+		{ "project": "" }
+	    ]
+	}
+    ],
+    "informationSecurityClassification": 
+    {
+	"accessURL": "",
+	"classifications": [
+	    { "classification": "confidentiality", "value": ""},
+	    { "classification": "integrity", "value": ""},
+	    { "classification": "availability", "value": ""}
+	]
+    }
+}

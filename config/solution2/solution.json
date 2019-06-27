@@ -1,0 +1,35 @@
+{
+    "solutionId": "solution2",
+    "description": "This solution solves something very important",
+    "users": "Other Business Department 2", 
+    "businessOwner": "Less Important Business owner II",
+    "stakeholders" : [
+	{ "stakeholder": "Planner", "description": "Does the planning" },
+	{ "stakeholder": "Developer", "description": "Is supposed to do the development"}
+    ],
+    "environments": [
+	{
+	    "environment": "development",	
+	    "gitBranch": "develop",
+	    "projects": [
+		{ "project": "dev_project2" }
+	    ]	
+	},
+	{
+	    "environment": "production",	
+	    "gitBranch": "master",
+	    "projects": [
+		{ "project": "live_project21" }
+	    ]
+	}
+    ],
+    "informationSecurityClassification": 
+    {
+	"accessURL": "https://www.microsoft.com",
+	"classifications": [
+	    { "classification": "confidentiality", "value": "2"},
+	    { "classification": "integrity", "value": "2"},
+	    { "classification": "availability", "value": "1"}
+	]
+    }
+}

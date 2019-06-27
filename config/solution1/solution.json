@@ -1,0 +1,36 @@
+{
+    "solutionId": "solution1",
+    "description": "This solution solves something very important",
+    "users": "Business Department 1", 
+    "businessOwner": "Important Business owner 1",
+    "stakeholders" : [
+	{ "stakeholder": "Planner", "description": "Does the planning" },
+	{ "stakeholder": "Engineer", "description": "Takes care of the engineering"}
+    ],
+    "environments": [
+	{
+	    "environment": "development",	
+	    "gitBranch": "develop",
+	    "projects": [
+		{ "project": "dev_project1a" },
+		{ "project": "dev_project1b" }
+	    ]	
+	},
+	{
+	    "environment": "production",	
+	    "gitBranch": "master",
+	    "projects": [
+		{ "project": "live_project1" }
+	    ]
+	}
+    ],
+    "informationSecurityClassification": 
+    {
+	"accessURL": "https://www.google.com",
+	"classifications": [
+	    { "classification": "confidentiality", "value": "1"},
+	    { "classification": "integrity", "value": "1"},
+	    { "classification": "availability", "value": "2"}
+	]
+    }
+}
