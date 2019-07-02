@@ -8,7 +8,7 @@ os.mkdir(path)
 
 http_regex=r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)'
 
-for filename in glob.iglob('../config/**', recursive=True):
+for filename in glob.iglob('../config/solutions/**', recursive=True):
     if os.path.isdir(filename): #filter directories
         if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
             os.mkdir(os.path.join(path,os.path.relpath(filename, '../config/solutions')))
