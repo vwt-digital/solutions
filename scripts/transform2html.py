@@ -6,19 +6,17 @@ path='../html'
 shutil.rmtree(path, ignore_errors=True, onerror=None)
 os.mkdir(path)
 
-#http_regex=r'(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'
-#http_regex=r'^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)'
 http_regex=r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)'
 
 for filename in glob.iglob('../config/**', recursive=True):
     if os.path.isdir(filename): #filter directories
-        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config'))):
-            os.mkdir(os.path.join(path,os.path.relpath(filename, '../config')))
+        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
+            os.mkdir(os.path.join(path,os.path.relpath(filename, '../config/solutions')))
 
     if os.path.isfile(filename): # filter dirs
-        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config'))):
+        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
             with open(filename) as in_file:
-                with open(os.path.join(path, os.path.relpath(filename, '../config'))+'.html', "w") as out_file:
+                with open(os.path.join(path, os.path.relpath(filename, '../config/solutions'))+'.html', "w") as out_file:
 
                     json_data = json.load(in_file)
 
