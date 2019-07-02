@@ -13,9 +13,10 @@ for filename in glob.iglob('../config/**', recursive=True):
         if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
             os.mkdir(os.path.join(path,os.path.relpath(filename, '../config/solutions')))
 
-    if os.path.isfile(filename): # filter dirs
+    if os.path.isfile(filename): # filter files
         if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
             with open(filename) as in_file:
+                print(in_file)
                 with open(os.path.join(path, os.path.relpath(filename, '../config/solutions'))+'.html', "w") as out_file:
 
                     json_data = json.load(in_file)
