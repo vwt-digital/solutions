@@ -1,12 +1,18 @@
 from json2html import *
 import glob, os, shutil, re, json
 
+html_index_file='index.html'
+http_regex=r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)'
+
 # Create output directory (and deltree if it already exists)
 path='../html'
 shutil.rmtree(path, ignore_errors=True, onerror=None)
 os.mkdir(path)
 
-http_regex=r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)'
+# Create output html index file
+with open(os.path.join(path, html_index_file), "w") as html_output_file:
+    html_output_file.write("<html>")
+html_output_file.closed
 
 for filename in glob.iglob('../config/solutions/**', recursive=True):
     if os.path.isdir(filename): #filter directories
@@ -17,6 +23,13 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
         if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
             with open(filename) as in_file:
                 print(in_file)
+
+                with open(os.path.join(path, html_index_file), "a") as html_output_file:
+                    tmp_filename = os.path.relpath(filename, '../config/solutions')+'.html'
+                    print(tmp_filename)
+                    html_output_file.write('<a href "'+ tmp_filename +'">'+ tmp_filename +'</a>')
+                html_output_file.closed
+
                 with open(os.path.join(path, os.path.relpath(filename, '../config/solutions'))+'.html', "w") as out_file:
 
                     json_data = json.load(in_file)
@@ -33,3 +46,7 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
             in_file.closed
 
 
+# Finalize output html index file
+with open(os.path.join(path, html_index_file), "a") as html_output_file:
+    html_output_file.write("</html>")
+html_output_file.closed
