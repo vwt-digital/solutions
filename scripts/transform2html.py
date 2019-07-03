@@ -11,7 +11,7 @@ os.mkdir(path)
 
 # Create output html index file
 with open(os.path.join(path, html_index_file), "w") as html_output_file:
-    html_output_file.write("<html>")
+    html_output_file.write("<html>\n")
 html_output_file.closed
 
 for filename in glob.iglob('../config/solutions/**', recursive=True):
@@ -27,7 +27,7 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
                 with open(os.path.join(path, html_index_file), "a") as html_output_file:
                     tmp_filename = os.path.relpath(filename, '../config/solutions')+'.html'
                     print(tmp_filename)
-                    html_output_file.write('<a href "'+ tmp_filename +'">'+ tmp_filename +'</a>')
+                    html_output_file.write('<a href "'+ tmp_filename +'">'+ tmp_filename +'</a>\n')
                 html_output_file.closed
 
                 with open(os.path.join(path, os.path.relpath(filename, '../config/solutions'))+'.html', "w") as out_file:
@@ -48,5 +48,5 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
 
 # Finalize output html index file
 with open(os.path.join(path, html_index_file), "a") as html_output_file:
-    html_output_file.write("</html>")
+    html_output_file.write("</html>\n")
 html_output_file.closed
