@@ -31,3 +31,5 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
                     out_file.write(output)
                 out_file.closed
             in_file.closed
+
+
