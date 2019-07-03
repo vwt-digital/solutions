@@ -12,7 +12,6 @@ os.mkdir(path)
 # Create output html index file
 with open(os.path.join(path, html_index_file), "w") as html_output_file:
     html_output_file.write("<html><table>\n")
-html_output_file.closed
 
 for filename in glob.iglob('../config/solutions/**', recursive=True):
     if os.path.isdir(filename): #filter directories
@@ -26,9 +25,7 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
 
                 with open(os.path.join(path, html_index_file), "a") as html_output_file:
                     tmp_filename = os.path.relpath(filename, '../config/solutions')+'.html'
-                    print(tmp_filename)
                     html_output_file.write('<tr><td><a href "'+ tmp_filename +'">'+ tmp_filename +'</a></td></tr>\n')
-                html_output_file.closed
 
                 with open(os.path.join(path, os.path.relpath(filename, '../config/solutions'))+'.html', "w") as out_file:
 
@@ -42,11 +39,8 @@ for filename in glob.iglob('../config/solutions/**', recursive=True):
                     output=re.sub(http_regex, r"<a href=\g<0>>\g<0></a>", html_document)
 
                     out_file.write(output)
-                out_file.closed
-            in_file.closed
 
 
 # Finalize output html index file
 with open(os.path.join(path, html_index_file), "a") as html_output_file:
     html_output_file.write("</table></html>\n")
-html_output_file.closed
