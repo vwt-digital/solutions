@@ -13,21 +13,21 @@ os.mkdir(path)
 with open(os.path.join(path, html_index_file), "w") as html_output_file:
     html_output_file.write("<html><table>\n")
 
-for filename in glob.iglob('../config/solutions/**', recursive=True):
+for filename in glob.iglob('../solutions/**', recursive=True):
     if os.path.isdir(filename): #filter directories
-        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
-            os.mkdir(os.path.join(path,os.path.relpath(filename, '../config/solutions')))
+        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../solutions'))):
+            os.mkdir(os.path.join(path,os.path.relpath(filename, '../solutions')))
 
     if os.path.isfile(filename): # filter files
-        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../config/solutions'))):
+        if not os.path.exists(os.path.join(path,os.path.relpath(filename, '../solutions'))):
             with open(filename) as in_file:
                 print(in_file)
 
                 with open(os.path.join(path, html_index_file), "a") as html_output_file:
-                    tmp_filename = os.path.relpath(filename, '../config/solutions')+'.html'
+                    tmp_filename = os.path.relpath(filename, '../solutions')+'.html'
                     html_output_file.write('<tr><td><a href "'+ tmp_filename +'">'+ tmp_filename +'</a></td></tr>\n')
 
-                with open(os.path.join(path, os.path.relpath(filename, '../config/solutions'))+'.html', "w") as out_file:
+                with open(os.path.join(path, os.path.relpath(filename, '../solutions'))+'.html', "w") as out_file:
 
                     json_data = json.load(in_file)
 
