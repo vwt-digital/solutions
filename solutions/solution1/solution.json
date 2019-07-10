@@ -10,6 +10,7 @@
     "environments": [
 	{
 	    "environment": "development",	
+	    "applicationURL": "https://some_dev_url",
 	    "gitBranch": "develop",
 	    "projects": [
 		{ "project": "dev_project1a" },
@@ -18,6 +19,7 @@
 	},
 	{
 	    "environment": "production",	
+	    "applicationURL": "https://some_prod_url",
 	    "gitBranch": "master",
 	    "projects": [
 		{ "project": "live_project1" }
