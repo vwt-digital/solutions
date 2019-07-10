@@ -25,7 +25,7 @@ for filename in glob.iglob('../solutions/**', recursive=True):
 
                 with open(os.path.join(path, html_index_file), "a") as html_output_file:
                     tmp_filename = os.path.relpath(filename, '../solutions')+'.html'
-                    html_output_file.write('<tr><td><a href "'+ tmp_filename +'">'+ tmp_filename +'</a></td></tr>\n')
+                    html_output_file.write('<tr><td><a href="'+ tmp_filename +'">'+ tmp_filename +'</a></td></tr>\n')
 
                 with open(os.path.join(path, os.path.relpath(filename, '../solutions'))+'.html', "w") as out_file:
 
