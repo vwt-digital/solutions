@@ -5,7 +5,7 @@ html_index_file='index.html'
 http_regex=r'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)'
 
 # Create output directory (and deltree if it already exists)
-path='../html'
+path='../www'
 shutil.rmtree(path, ignore_errors=True, onerror=None)
 os.mkdir(path)
 
